@@ -14,7 +14,7 @@ export default function ErrorPage() {
 
     return (
         <div className="ErrorPage">
-            <Typography variant="h3">Uh oh, something went wrong! Try again later</Typography>
+            <Typography variant="h4">Uh oh, something went wrong! Try again later</Typography>
             <Footer />
         </div>
     )

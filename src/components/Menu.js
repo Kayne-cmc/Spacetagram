@@ -6,7 +6,7 @@ import './Menu.css';
 import NightlightIcon from '@mui/icons-material/Nightlight';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import MenuIcon from '@mui/icons-material/Menu';
-import { Box, Typography, AppBar, Toolbar, IconButton, Drawer, List, ListItem, ListItemIcon, ListItemText, Divider } from '@mui/material';
+import { Box, AppBar, Toolbar, IconButton, Drawer, List, ListItem, ListItemIcon, ListItemText, Divider } from '@mui/material';
 import HomeIcon from '@mui/icons-material/Home';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import SearchIcon from '@mui/icons-material/Search';
@@ -25,7 +25,7 @@ export default function Menu(props) {
     ];
 
     const externalItems = [
-        {title: "Github", icon: <GitHubIcon />, route: "https://github.com/Kayne-cmc"},
+        {title: "Github", icon: <GitHubIcon />, route: "https://github.com/Kayne-cmc/Spacetagram"},
         {title: "About me", icon: <PersonIcon />, route: "https://www.kaynechu.com/"}
     ];
 
