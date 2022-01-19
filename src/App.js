@@ -7,6 +7,7 @@ import Menu from './components/Menu';
 import Home from './components/routes/Home/Home';
 import Posts from './components/routes/Posts/Posts';
 import Liked from './components/routes/Liked/Liked';
+import ErrorPage from './components/routes/Error/ErrorPage';
 
 //Material-UI
 import { createTheme, ThemeProvider, responsiveFontSizes } from '@mui/material/styles';
@@ -36,6 +37,8 @@ function App() {
                             <Route path="/posts" element={<Posts loading= {loading} setLoading={setLoading} apiKey={apiKey} />} />
 
                             <Route path="/liked" element={<Liked loading={loading} setLoading={setLoading} apiKey={apiKey}/>} />
+
+                            <Route path="/error" element={<ErrorPage />} />
                         </Routes>
                     </BrowserRouter>
                 </div>

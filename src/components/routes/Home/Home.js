@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Carousel } from '3d-react-carousal';
-import { Typography } from '@mui/material';
+import Carousel from 'react-spring-3d-carousel';
+import { config } from 'react-spring';
 import './Home.css';
 
 // Components
 import Loading from '../../Loading';
-import ErrorPage from '../../ErrorPage';
+import ErrorPage from '../Error/ErrorPage';
+import Footer from '../../Footer';
 
 export default function Home(props) {
     const [images, setImages] = useState([]);
+    const [slide, setSlide] = useState(0);
 
     useEffect(() => {
         props.setLoading(true);
@@ -18,14 +20,9 @@ export default function Home(props) {
             .then(result => {
                 console.log(result);
                 setImages(result.data.map(image => {
-                    if (image.media_type === "video") {
-                        return (<img src={image.thumbnail_url} alt={image.title} className="carousel-image"/>)
-                    }
-                    else if (image.media_type === "image") {
-                        return (<img src={image.hdurl || image.url} alt={image.title} className="carousel-image"/>)
-                    }
-                    else {
-                        return (<></>)
+                    return {
+                        key: image.title,
+                        content: <img src={image.thumbnail_url || image.hdurl || image.url} alt={image.title} className="carousel-image" style={{ width: "400px", height:"500px" }}/>
                     }
                 }));
                 props.setLoading(false);
@@ -35,6 +32,14 @@ export default function Home(props) {
             });
     }, []);
 
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setSlide(slide + 1);
+        }, 2000);
+
+        return () => clearInterval(interval);
+    }, [slide]);
+
     return (
         <div className="Home">
             <Loading loading={props.loading} />
@@ -43,17 +48,24 @@ export default function Home(props) {
                 (props.loading) ? (<></>) : (images) ? (
                     <>
                         <div className="title">
-                            <Typography variant="h1" sx={{ fontFamily: "'Pacifico', cursive"}}>Spacetagram</Typography>
-                            <Typography variant="subtitle1">Look into the universe and see what lies ahead</Typography>
+                            <p className='introduction'>Explore the beauty of the universe</p>
                         </div>
                         <div className="Carousel">
-                            <Carousel slides={images}/>
+                            <Carousel
+                                slides={images}
+                                offsetRadius={2}
+                                goToSlide={slide}
+                                showNavigation={false}
+                                animationConfig={config.gentle}
+                            />
                         </div>
                     </>
                 ) : (
                     <ErrorPage />
                 )
             }
+
+            <Footer />
         </div>
     )
 }

@@ -1,4 +1,9 @@
 .dialog-content {
     display: flex;
     flex-wrap: wrap;
+    max-height: 100%;
+}
+
+.dialog-media {
+    width: 100%;
 }

@@ -1,0 +1,10 @@
+.DateSelector {
+    max-width: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.date-picker {
+    margin: 0.5em;
+}

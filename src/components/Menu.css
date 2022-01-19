@@ -1,0 +1,10 @@
+.menu-title {
+    text-decoration: none;
+    margin: auto;
+    color: inherit;
+    font-size: 30px;
+}
+
+.menu-title p {
+    margin: 0;
+}

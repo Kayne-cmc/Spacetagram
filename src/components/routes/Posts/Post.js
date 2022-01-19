@@ -38,12 +38,6 @@ export default function Post(props) {
                     <Typography variant="h6">{props.title}</Typography>
                     <div className="media-container">
                         <div className="media">
-                            {/* {(props.type==="image") ? (
-                                <input type="image" src={props.url} alt={props.title} onClick={() => setOpen(true)}/>
-                            ) : (
-                                <iframe src={props.url} title={props.title}></iframe>
-                                )
-                            } */}
                             <input
                                 type="image"
                                 src={props.thumbnail_url || props.url}
@@ -67,9 +61,12 @@ export default function Post(props) {
                 open={open}
                 handleClose={handleClose}
                 title={props.title}
+                type={props.type}
+                date={props.date}
                 url={props.url}
                 description={props.description}
-                type={props.type}
+                liked={liked}
+                likePost={likePost}
             />
         </div>
     )

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
+import './Menu.css';
 
 //Material-UI
 import NightlightIcon from '@mui/icons-material/Nightlight';
@@ -19,8 +20,8 @@ export default function Menu(props) {
 
     const menuItems = [
         {title: "Home", icon: <HomeIcon />, route: "/"},
-        {title: "Liked", icon: <FavoriteIcon />, route: "/liked"},
         {title: "Explore", icon: <SearchIcon />, route: "/posts"},
+        {title: "Liked", icon: <FavoriteIcon />, route: "/liked"}
     ];
 
     const externalItems = [
@@ -34,7 +35,7 @@ export default function Menu(props) {
                 <AppBar position="static">
                     <Toolbar>
                         <IconButton size="large" onClick={() => setOpen(true)}><MenuIcon /></IconButton>
-                        <Typography variant="h3" sx={{ margin: "auto"}} onClick={() => navigate("/")}>Spacetagram</Typography>
+                        <Link to="/" className="menu-title"><p>S P A C E T A G R A M</p></Link>
                         <IconButton
                             size="large"
                             onClick={() => props.setTheme(!props.theme)}

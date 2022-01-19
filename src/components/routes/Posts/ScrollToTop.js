@@ -11,7 +11,7 @@ export default function ScrollToTop(props) {
     });
 
     function handleClick(event) {
-        const anchor = document.querySelector('#back-to-top-anchor');
+        const anchor = (event.target.ownerDocument || document).querySelector('#back-to-top-anchor');
 
         if(anchor) {
             anchor.scrollIntoView({
@@ -24,7 +24,7 @@ export default function ScrollToTop(props) {
     return (
         <div className="scrollToTop">
             <Zoom in={trigger}>
-                <Box onClick={handleClick} role="presentation" sx={{ position: 'fixed', bottom: 16, right: 16 }}>{children}</Box>
+                <Box onClick={handleClick} role="presentation" sx={{ position: 'fixed', bottom: 70, right: 32 }}>{children}</Box>
             </Zoom>
         </div>
     )

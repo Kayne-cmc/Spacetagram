@@ -5,8 +5,8 @@ import './CountSlider.css'
 export default function CountSlider(props) {
     return (
         <div className="CountSlider full-width">
-            <Typography variant="h6" sx={{ width:"100%" }}>How many Images would you like to see?</Typography>
-            <Box sx={{ width:200 }}>
+            <Typography variant="h6" sx={{ width:"100%" }}>How many images would you like to see?</Typography>
+            <Box sx={{ width:300 }}>
                 <Typography variant="body1">{props.count}</Typography>
                 <Slider
                     min={0}
